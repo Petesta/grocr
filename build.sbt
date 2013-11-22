@@ -1,6 +1,6 @@
 import net.litola.SassPlugin
 
-name := "todolist"
+name := "grocr"
 
 version := "1.0-SNAPSHOT"
 

@@ -5,43 +5,45 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 
-import models.Task
+import models.Trip
+import controllers._
 
 object ApplicationController extends Controller {
 
-  val taskForm = Form(
-    "label" -> nonEmptyText
-  )
+  //val taskForm = Form(
+    //"label" -> nonEmptyText
+  //)
 
-  def index = Action {
-    Redirect(routes.Application.tasks)
-  }
+  //def index = Action {
+    //Redirect(routes.Application.tasks)
+  //}
 
-  def tasks = Action {
-    Ok(views.html.index(Task.all(), taskForm))
-  }
+  //def tasks = Action {
+    //Ok(views.html.index(Task.all(), taskForm))
+  //}
 
-  def newTask = Action { implicit request =>
-    taskForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.index(Task.all(), errors)),
-      label => {
-        Task.create(label)
-        Redirect(routes.Application.tasks)
-      }
-    )
-  }
+  //def newTask = Action { implicit request =>
+    //taskForm.bindFromRequest.fold(
+      //errors => BadRequest(views.html.index(Task.all(), errors)),
+      //label => {
+        //Task.create(label)
+        //Redirect(routes.Application.tasks)
+      //}
+    //)
+  //}
 
-  def deleteTask(id: Long) = Action {
-    Task.delete(id)
-    Redirect(routes.Application.tasks)
-  }
+  //def deleteTask(id: Long) = Action {
+    //Task.delete(id)
+    //Redirect(routes.Application.tasks)
+  //}
 
-  def users = TODO
+  //def users = TODO
 
-  def newUser = TODO
+  //def newUser = TODO
 
-  def items = TODO
+  //def items = TODO
 
-  def newItem = TODO
+  //def newItem = TODO
+
 }
 

@@ -1,14 +1,14 @@
-# Tasks schema
+# Trips schema
 
 # --- !Ups
 
-CREATE SEQUENCE task_id_seq;
-CREATE TABLE task (
-  id integer NOT NULL DEFAULT nextval('task_id_seq'),
-  label varchar(255)
+CREATE SEQUENCE trip_id_seq;
+CREATE TABLE trips (
+  id integer NOT NULL DEFAULT nextval('trip_id_seq'),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 
 # --- !Downs
 
-DROP TABLE task;
-DROP SEQUENCE task_id_seq;
+DROP TABLE trips;
+DROP SEQUENCE trip_id_seq;
