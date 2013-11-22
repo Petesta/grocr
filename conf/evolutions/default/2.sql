@@ -1,7 +1,6 @@
 # Users Schema
 
-
-# --- !Ups 
+# --- !Ups
 
 CREATE SEQUENCE user_id_seq;
 CREATE TABLE users (

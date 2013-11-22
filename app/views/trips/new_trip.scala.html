@@ -7,7 +7,7 @@
     <div class="span-8 offset-4">
 
       <h1>Create a new trip</h1>
-      @form(routes.TripsController.newTrip) {
+      @form(action=routes.TripsController.createTrip) {
         @textarea(tripForm("items"), '_label -> "Items (one per line)")
         <input type="submit" value="Create" class="btn btn-large btn-mobile-block btn-blue" />
       }
