@@ -3,12 +3,17 @@
 @import helper._
 
 @main("new_trip") {
-  <h1>New Trip</h1>
+  <div class="row">
+    <div class="span-8 offset-4">
 
-  <!--@form(routes.TripsController.newTrip) {-->
-  <!--@inputText(tripForm("items"))-->
+      <h1>Create a new trip</h1>
+      @form(routes.TripsController.newTrip) {
+        @textarea(tripForm("items"), '_label -> "Items (one per line)")
+        <input type="submit" value="Create" class="btn btn-large btn-mobile-block btn-blue" />
+      }
 
-  <!--<input type="submit" value="Create"/>-->
+    </div>
+  </div>
 
-  <!--}-->
+
 }

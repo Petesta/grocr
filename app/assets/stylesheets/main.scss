@@ -1,8 +1,159 @@
 @import "variables.scss";
+@import "mixins.scss";
 
 body {
-  background-color: white;
+  background: #f6f2e8 url('/assets/images/noise.png');
   color: #404040;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 13px;
+
+  .container {
+    margin: 20px auto 0;
+  }
+}
+
+@include mobile {
+  body .container { padding: 0 5px; }
+}
+
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
+form {
+  @include clearfix;
+
+  input:not([type="submit"]),
+  textarea {
+    @include border-box;
+    @include border-radius;
+    font-size: 1.2em;
+    border: 1px solid lighten(#ccc, 8);
+    margin-bottom: 15px;
+    padding: 12px 7px;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+
+    //&.field-error { border-color: $red; }
+  }
+
+
+  textarea {
+    height: 10em;
+    overflow: auto; // Remove scrollbar in IE
+  }
+
+  input[type="submit"] {
+    float: right;
+    display: block;
+  }
+
+  label {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+.btn {
+  @include border-radius(3px);
+  box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.15) inset;
+  border: none;
+  color: white;
+  display: inline-block;
+  padding: 10px 12px;
+
+  &:hover { text-decoration: none; }
+}
+
+.btn-large {
+  font-size: 1.2em;
+  padding: 13px 60px;
+}
+
+.btn-mobile-block {
+  @include mobile {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+}
+
+.btn-blue {
+  background-color: #08c;
+  &:hover { background-color: darken(#08c, 5%); }
+}
+
+//.btn-green {
+  //background-color: lighten($green, 5%);
+  //&:hover { background-color: $green; }
+//}
+
+//.btn-cta {
+  //font-size: 1.3em;
+  //padding: 14px 36px;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+.item {
+  @include border-box;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: 0;
+  font-size: 1.3em;
+  padding: 20px;
+
+  &:first-child { border-top: 1px solid #ccc; }
+
+  &.item-completed {
+    background-color: lighten(#ccc, 11);
+    color: lighten(#404040, 23);
+  }
+
+  input[type='checkbox'] {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  p {
+    display: inline-block;
+    margin-top: 1px;
+  }
+}
+
+
+
+
+
+// 'required' label automatically added by Play.
+// Are you serious?
+dd.info {
+  display: none;
 }
