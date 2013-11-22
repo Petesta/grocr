@@ -36,6 +36,12 @@ object Application extends Controller {
     Redirect(routes.Application.tasks)
   }
 
+  def users = TODO
 
+  def newUser = TODO
+
+  def items = TODO
+
+  def newItem = TODO
 }
 
