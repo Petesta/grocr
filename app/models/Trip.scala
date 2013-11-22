@@ -27,17 +27,22 @@ object Trip {
   //}
 
   def create(items: String) {
-    // TODO: parse items, create one for each
     DB.withConnection { implicit c =>
-      //SQL("INSERT INTO trips (label) VALUES ({label})").on('label -> label)
-        //.executeUpdate()
+      // Create a trip to hold the items we're creating
+      // Trips have no attributes besides timestamp
+      SQL("INSERT INTO trips VALUES ()").executeUpdate()
+
+      // TODO: super hacky way to get trip id of the trip we just created
+      val firstRow = SQL("SELECT id from TRIPS order by id DESC LIMIT 1").apply().head
+      val tripId = firstRow[Long]("id")
+
+
+      items.split("\n") foreach { name =>
+        SQL("INSERT INTO items (trip_id, name) VALUES ({tripId}, {name})")
+          .on('name -> name,'tripId -> tripId)
+          .executeUpdate()
+      }
     }
   }
 
-  //def delete(id: Long) {
-    //DB.withConnection { implicit c =>
-      //SQL("DELETE FROM trip WHERE id = {id}").on('id -> id)
-        //.executeUpdate()
-    //}
-  //}
 }

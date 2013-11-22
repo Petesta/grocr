@@ -1,0 +1,15 @@
+@(items: List[Item])
+
+@import helper._
+
+@main("all_items") {
+  <div class="row">
+    <div class="span-8 offset-4">
+
+      @items map { item =>
+        <p>@item.name</p>
+      }
+
+    </div>
+  </div>
+}

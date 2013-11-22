@@ -12,6 +12,8 @@ POST /users                         controllers.UsersController.createUser
 GET /trips/new                      controllers.TripsController.newTrip
 POST /trips                         controllers.TripsController.createTrip
 
+GET /trips/:trip_id/items controllers.ItemsController.allItems
+
 
 #GET /items                         controllers.Application.items
 #POST /items                        controllers.Application.newItem
