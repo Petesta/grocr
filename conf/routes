@@ -7,11 +7,10 @@ GET     /                           controllers.Application.index
 
 
 # Tasks
-GET /tasks             controllers.Application.tasks
-POST /tasks            controllers.Application.newTask
-POST /tasks/:id/delete controllers.Application.deleteTask(id: Long)
 GET /users             controllers.Application.users
 POST /users            controllers.Application.newUser
+GET /trips/new         controllers.TripsController.newTrip
+POST /trips            controllers.TripsController.createTrip
 GET /items             controllers.Application.items
 POST /items            controllers.Application.newItem
 
