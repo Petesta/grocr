@@ -6,15 +6,15 @@
 GET     /                           controllers.TripsController.newTrip
 
 
-#GET /users             controllers.Application.users
-#POST /users            controllers.Application.newUser
+GET /users/new                      controllers.UsersController.newUser
+POST /users                         controllers.UsersController.createUser
 
-GET /trips/new         controllers.TripsController.newTrip
-POST /trips            controllers.TripsController.createTrip
+GET /trips/new                      controllers.TripsController.newTrip
+POST /trips                         controllers.TripsController.createTrip
 
 
-#GET /items             controllers.Application.items
-#POST /items            controllers.Application.newItem
+#GET /items                         controllers.Application.items
+#POST /items                        controllers.Application.newItem
 
 
 # Map static resources from the /public folder to the /assets URL path

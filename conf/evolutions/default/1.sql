@@ -1,5 +1,6 @@
 # Trips schema
 
+
 # --- !Ups
 
 CREATE SEQUENCE trip_id_seq;
