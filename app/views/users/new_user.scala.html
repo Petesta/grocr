@@ -1,7 +1,14 @@
-@(userForm: Form[controllers.UsersController])
+@(userForm: Form[(String, String, java.util.Date)])
 
 @import helper._
 
-@main("user_trip") {
+@main("new_user") {
   <h1>New User</h1>
+
+  <h2>Create New User</h2>
+  @form(routes.UsersController.createUser) {
+    @inputText(userForm("email"))
+    @inputText(userForm("password"))
+    <input type="submit" value="Create">
+  }
 }

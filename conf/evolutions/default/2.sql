@@ -5,9 +5,9 @@
 CREATE SEQUENCE user_id_seq;
 CREATE TABLE users (
   id integer NOT NULL DEFAULT nextval('user_id_seq'),
-  first_name varchar(255) NULL,
-  last_name varchar(255) NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  email varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 
 # --- !Downs

@@ -1,19 +1,22 @@
 package controllers
 
+import java.util.{Date}
+
 import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import play.api.data.validation.Constraints._
 
-case class UsersController(email: String, password: String)
+import models.User
 
 object UsersController extends Controller {
   val userForm = Form(
-    mapping(
+    tuple(
       "email" -> email,
-      "password" -> nonEmptyText(minLength = 5)
-    )(UsersController.apply)(UsersController.unapply)
+      "password" -> nonEmptyText(minLength = 5),
+      "created" -> date("MM/dd/yy")
+    )
   )
 
   def newUser = Action {
@@ -23,11 +26,12 @@ object UsersController extends Controller {
   def createUser = Action { implicit request =>
     userForm.bindFromRequest.fold(
       error => BadRequest(views.html.users.new_user(userForm)),
-      label => {
-        Redirect(routes.UsersController.newUser)
+      {
+        case (email, password, created) => {
+          User.create(email, password, created)
+          Redirect(routes.UsersController.newUser)
+        }
       }
     )
   }
-
-  def createUsers = TODO
 }
