@@ -7,7 +7,8 @@ CREATE TABLE users (
   id integer NOT NULL DEFAULT nextval('user_id_seq'),
   email varchar(255) NOT NULL,
   password varchar(255) NOT NULL,
-  created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
 )
 
 # --- !Downs

@@ -1,10 +1,16 @@
-@(tripForm: Form[String])
+@(items: List[Item], tripForm: Form[String])
 
 @import helper._
 
 @main("new_trip") {
   <div class="row">
     <div class="span-8 offset-4">
+    <h2> List of items </h2>
+     @items.map { item =>
+            <li>
+                @item.name
+            </li>
+     }
 
       <h1>Create a new trip</h1>
       @form(action=routes.TripsController.createTrip) {

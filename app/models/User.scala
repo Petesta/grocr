@@ -20,9 +20,13 @@ object User {
     }
   }
 
+  def all(): List[User] = DB.withConnection { implicit c =>
+    SQL("SELECT * FROM users").as(user *)
+  }
+
   def create(email: String, password: String, created: Date) {
     DB.withConnection { implicit c =>
-      SQL("insert into user(email, password, created) values ({email, password, created})").on(
+      SQL("insert into users(email, password, created) values ({email, password, created})").on(
         'email -> email,
         'password -> password,
         'created -> created).executeInsert()
