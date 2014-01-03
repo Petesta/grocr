@@ -26,9 +26,9 @@ object Item {
 
   def create(name: String, created: Date) {
     DB.withConnection { implicit c =>
-      SQL("insert into items(name, created) values ({name, created})").on(
-        'name -> name,
-        'created -> created).executeInsert()
+      SQL("INSERT INTO items (name, created) VALUES ({name, created})")
+        .on('name -> name, 'created -> created)
+        .executeInsert()
     }
   }
 }

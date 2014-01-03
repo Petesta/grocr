@@ -22,8 +22,22 @@ h1 {
   margin-bottom: 15px;
 }
 
+a {
+  color: #08c;
+  text-decoration: none;
+}
 
 
+header {
+  @include clearfix;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+
+  a {
+    float: right;
+  }
+}
 
 
 
@@ -79,6 +93,7 @@ form {
   color: white;
   display: inline-block;
   padding: 10px 12px;
+  text-decoration: none;
 
   &:hover { text-decoration: none; }
 }
@@ -87,6 +102,8 @@ form {
   font-size: 1.2em;
   padding: 13px 60px;
 }
+
+.btn-block { display: block; }
 
 .btn-mobile-block {
   @include mobile {
@@ -120,7 +137,7 @@ form {
 
 
 
-
+.items-container {}
 
 .item {
   @include border-box;
@@ -133,13 +150,16 @@ form {
   &:first-child { border-top: 1px solid #ccc; }
 
   &.item-completed {
-    background-color: lighten(#ccc, 11);
+    background-color: lighten(#ccc, 13);
     color: lighten(#404040, 23);
+
+    p { text-decoration: line-through; }
   }
 
-  input[type='checkbox'] {
+  .item-toggle {
     display: inline-block;
     margin-right: 10px;
+    margin-top: -2px;
   }
 
   p {
@@ -149,7 +169,12 @@ form {
 }
 
 
-
+.finish-btn {
+  font-size: 1.2em;
+  margin-top: 20px;
+  text-align: center;
+  padding: 15px 0;
+}
 
 
 // 'required' label automatically added by Play.

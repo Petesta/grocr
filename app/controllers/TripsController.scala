@@ -17,6 +17,10 @@ object TripsController extends Controller {
     Ok(views.html.trips.new_trip(Item.all(), tripForm))
   }
 
+  def showTrip(id: Long) = Action {
+    Ok(views.html.trips.show_trip(Item.all()))
+  }
+
   def createTrip = Action { implicit request =>
     tripForm.bindFromRequest.fold(
       errors => BadRequest(views.html.trips.new_trip(Item.all(), tripForm)),

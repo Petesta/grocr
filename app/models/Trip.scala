@@ -20,11 +20,9 @@ object Trip {
     }
   }
 
-  // withConnection automatically creates/releases a JDBC connection
-  // We parse the ResultSet using the `trip *` parser
-  //def all(): List[Trip] = DB.withConnection { implicit c =>
-    //SQL("SELECT * FROM trips").as(trip *)
-  //}
+  def find(id: Long) = DB.withConnection { implicit c =>
+    SQL("SELECT * FROM trips where id = {id}").as(trip *)
+  }
 
   def create(items: String) {
     DB.withConnection { implicit c =>
