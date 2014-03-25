@@ -4,11 +4,11 @@
 
 CREATE SEQUENCE item_id_seq;
 CREATE TABLE items (
-  id integer NOT NULL DEFAULT nextval('item_id_seq'),
-  name VARCHAR(255) NOT NULL,
-  trip_id INTEGER NOT NULL,
+  id INTEGER NOT NULL DEFAULT nextval('item_id_seq'),
+  tripID INTEGER NOT NULL,
+  name VARCHAR(20) NOT NULL,
   created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (trip_id) REFERENCES Trips(id),
+  FOREIGN KEY (tripID) REFERENCES Trips(id),
   PRIMARY KEY (id)
 )
 

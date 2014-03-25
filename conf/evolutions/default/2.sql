@@ -1,17 +1,15 @@
-# Users Schema
+# Trips schema
 
 # --- !Ups
 
-CREATE SEQUENCE user_id_seq;
-CREATE TABLE users (
-  id integer NOT NULL DEFAULT nextval('user_id_seq'),
-  email varchar(255) NOT NULL,
-  password varchar(255) NOT NULL,
+CREATE SEQUENCE trip_id_seq;
+CREATE TABLE trips (
+  id INTEGER NOT NULL DEFAULT nextval('trip_id_seq'),
   created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 )
 
 # --- !Downs
 
-DROP TABLE users;
-DROP SEQUENCE user_id_seq;
+DROP TABLE trips;
+DROP SEQUENCE trip_id_seq;
