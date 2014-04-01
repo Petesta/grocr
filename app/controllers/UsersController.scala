@@ -16,7 +16,7 @@ object UsersController extends Controller {
       "firstName" -> nonEmptyText,
       "lastName" -> nonEmptyText,
       "email" -> email,
-      "password" -> nonEmptyText
+      "password" -> nonEmptyText(minLength = 5)
     )
   )
 
@@ -56,9 +56,9 @@ object Auth extends Controller {
       errors => BadRequest(views.html.users.login(errors)),
         user => {
           println(s"Inside authenticate, Log in was successful!")
-          Redirect(routes.UsersController.newUser).withSession("email" -> user._1)
+          //Redirect(routes.UsersController.newUser).withSession("email" -> user._1)
+          Ok(views.html.users.summary(user._1)).withSession("email" -> user._1)
         }
-        //user => Ok(views.html.users.summary(user._1)).withSession("email" -> user._1)
     )
   }
 
