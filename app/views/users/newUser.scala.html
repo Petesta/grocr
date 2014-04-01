@@ -1,0 +1,30 @@
+@(userForm: Form[(String, String, String, String)])
+
+@import helper._
+
+@main("Create a new user") {
+  <h1>New User</h1>
+
+  <center><h2>Create New User Account</h2></center>
+  @form(routes.UsersController.createUser) {
+    @inputText(userForm("firstName"),
+      '_label -> "First Name"
+    ) 
+
+    @inputText(userForm("lastName"),
+      '_label -> "Last Name"
+    )
+
+    @inputText(userForm("email"),
+      '_label -> "Email",
+      '_help -> "Enter a valid email address"
+    )
+
+    @inputText(userForm("password"),
+      '_label -> "Password",
+      '_help -> "Password must be at least 4 characters"
+    )
+
+    <input type="submit" value="Sign Up" class="btn btn-large btn-mobile-block btn-blue">
+  }
+}

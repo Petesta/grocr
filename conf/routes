@@ -1,12 +1,16 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
-GET /users/new                      controllers.UsersController.newUser
+GET  /users                         controllers.UsersController.newUser
 POST /users                         controllers.UsersController.createUser
 
-GET /trips/new                      controllers.TripsController.newTrip
+GET  /login                         controllers.Auth.login
+POST /login                         controllers.Auth.authenticate
+GET  /logout                        controllers.Auth.logout
+
+GET  /trips/new                     controllers.TripsController.newTrip
 POST /trips                         controllers.TripsController.createTrip
-GET /trips/:id                      controllers.TripsController.showTrip(id: Long)
+GET  /trips/:id                     controllers.TripsController.showTrip(id: Long)
 
 #GET /trips/:trip_id/items controllers.ItemsController.allItems
 
@@ -16,8 +20,8 @@ GET /trips/:id                      controllers.TripsController.showTrip(id: Lon
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET  /assets/*file                  controllers.Assets.at(path="/public", file)
 
 
 # Home page
-GET     /                           controllers.TripsController.newTrip
+GET  /                              controllers.TripsController.newTrip

@@ -3,7 +3,7 @@ package models
 import anorm._
 import anorm.SqlParser._
 
-import java.util.Date
+import java.util.{Date}
 
 import play.api.db._
 import play.api.Play.current
@@ -47,7 +47,7 @@ object User {
       SQL("select * from users where email = {email} and password = {password}").on(
         'email -> email,
         'password -> password
-      ).(User.user.singleOpt)
+      ).as(User.user.singleOpt)
     }
   }
 }
